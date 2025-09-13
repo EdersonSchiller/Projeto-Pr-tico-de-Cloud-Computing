@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Site Consulta CEP</title>
+  <meta name="description" content="Projeto base acessível e seguro: HTML, CSS e JavaScript puro. Formulário de contato com Formspree e consumo de API pública (ViaCEP)." />
+  <link rel="canonical" href="/" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="robots" content="index,follow" />
+
+  <!-- Open Graph (para compartilhamento) -->
+  <meta property="og:title" content="Site Starter — HTML + CSS + JS" />
+  <meta property="og:description" content="Contato via Formspree + Demo de API ViaCEP. Sem expor dados sensíveis." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/img/logo.svg" />
+
+  <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+  <!-- CSS principal -->
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <!-- Acessibilidade: link para pular direto ao conteúdo -->
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="site-header">
+    <div class="container">
+      <div class="brand">
+        <img src="assets/img/logo.svg" alt="" width="28" height="28" aria-hidden="true">
+        <strong>Site Starter</strong>
+      </div>
+      <nav class="nav" aria-label="Principal">
+        <ul class="nav__list">
+          <li><a href="#api">Buscar CEP</a></li>
+          <li><a href="#contato">Contato</a></li>
+          <li><a href="https://www.correios.com.br/" target="_blank" rel="noopener">Correios</a></li>
+          <li><a href="https://vercel.com/" target="_blank" rel="noopener">Vercel</a></li>
+          <li><a href="https://www.netlify.com/" target="_blank" rel="noopener">Netlify</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo" class="container">
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="titulo-principal">
+      <h1 id="titulo-principal">Base sólida para seu site em HTML, CSS e JS</h1>
+      <p>
+        Este template segue boas práticas, não expõe segredos e já vem com:
+        <strong>Formulário de contato (Formspree)</strong> + <strong>consumo de API pública (ViaCEP)</strong>.
+      </p>
+      <p class="hero__cta-wrap">
+        <a class="btn" href="#api">Testar API ViaCEP</a>
+        <a class="btn btn--secondary" href="#contato">Falar comigo</a>
+      </p>
+    </section>
+
+    <!-- API pública: ViaCEP -->
+    <section id="api" class="card" aria-labelledby="api-title">
+      <h2 id="api-title">Consulta de CEP (API ViaCEP)</h2>
+      <p>Digite um CEP válido do Brasil (8 dígitos) e veja o endereço. Nenhuma chave é necessária.</p>
+
+      <form id="cepForm" class="form" autocomplete="off" novalidate>
+        <div class="form__row">
+          <label for="cep">CEP</label>
+          <input
+            id="cep"
+            name="cep"
+            inputmode="numeric"
+            pattern="\d{8}"
+            minlength="8"
+            maxlength="9"
+            placeholder="Somente números — Ex.: 01001000"
+            required
+          />
+        </div>
+        <button class="btn" type="submit" id="cepBtn">Buscar</button>
+        <small class="muted">Exemplo de API pública sem autenticação (https://viacep.com.br/).</small>
+      </form>
+
+      <!-- Resultado acessível com aria-live -->
+      <output id="cepResult" class="result" role="status" aria-live="polite"></output>
+    </section>
+
+    <!-- Formulário de contato: Formspree -->
+    <section id="contato" class="card" aria-labelledby="contato-title">
+      <h2 id="contato-title">Contato (Formspree)</h2>
+      <p>Preencha o formulário. Os dados são enviados ao Formspree — nenhum segredo é exposto no código.</p>
+
+      <!-- Endpoint do Formspree já configurado -->
+      <form id="contactForm" class="form" action="https://formspree.io/f/xeolddwj" method="POST" novalidate>
+        <!-- Campo anti-bot (honeypot) -->
+        <input type="text" name="_gotcha" class="visually-hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+        <div class="form__row">
+          <label for="nome">N.ome</label>
+          <input id="nome" name="nome" autocomplete="name" required />
+        </div>
+
+        <div class="form__row">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" required />
+        </div>
+
+        <div class="form__row">
+          <label for="mensagem">Mensagem</label>
+          <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
+        </div>
+
+        <button class="btn" type="submit" id="contactBtn">Enviar</button>
+
+        <!-- Mensagens de status (sucesso/erro) -->
+        <p id="contactStatus" class="status" role="status" aria-live="polite"></p>
+        <small class="muted">
+          Codigo disponivel em <a href="https://github.com/EdersonSchiller" target="_blank" rel="noopener">GuiHub</a> , é só acessar!!!  .
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Feito com ♥ e com carinho — código organizado, acessível e seguro. <span class="muted">Sem bibliotecas externas.</span></p>
+    </div>
+  </footer>
+
+  <noscript>
+    Ative o JavaScript para usar a consulta de CEP e o envio do formulário via AJAX.
+  </noscript>
+
+  <!-- ES Modules: JS organizado -->
+  <script type="module" src="assets/js/main.js"></script>
+</body>
+</html>

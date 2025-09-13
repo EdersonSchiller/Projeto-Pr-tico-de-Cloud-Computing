@@ -1,0 +1,10 @@
+# netlify.toml — headers de segurança para todo o site
+[[headers]]
+for = "/*"
+  [headers.values]
+  Content-Security-Policy = "default-src 'self'; base-uri 'self'; form-action 'self' https://formspree.io; frame-ancestors 'none'; object-src 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'self' https://viacep.com.br https://formspree.io; upgrade-insecure-requests"
+  Referrer-Policy = "strict-origin-when-cross-origin"
+  X-Content-Type-Options = "nosniff"
+  X-Frame-Options = "DENY"
+  Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+  Strict-Transport-Security = "max-age=63072000; includeSubDomains; preload"
