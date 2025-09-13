@@ -7,7 +7,7 @@ Projeto base **100% estático** com:
 - ✅ Boas práticas de segurança (CSP, headers) e acessibilidade
 - ✅ Sem expor dados sensíveis
 
-1. ## Consulta CEP 🌐
+1. ## Consulta CEP 🌐 - https://localizarua.netlify.app/
 
 Este projeto é um site modelo construído em HTML, CSS e JavaScript puro, seguindo boas práticas de organização, acessibilidade e segurança.
 Ele foi pensado como uma base sólida para quem esta apredendo iniciar novos projetos web sem expor dados sensíveis e com deploy facilitado (Netlify).
